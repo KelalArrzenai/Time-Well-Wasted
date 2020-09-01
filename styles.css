@@ -1,0 +1,58 @@
+
+
+.column{
+    background-color: white;
+    margin-top: 15%;
+    border-radius: 10px;
+    background-color: #d18b49;
+    padding-bottom: 140px;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: 	#d18b49;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: 	#d18b49;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 1;
+    margin-left: 70px;
+    
+    
+
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    background-color:	white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  span{
+    font-size: 30px !important;
+    font-family: 'Amatic SC', cursive;
+  }
+
+  h3{
+    font-size: 50px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bolder;
+    text-align: center;
+  }
