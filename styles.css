@@ -53,25 +53,29 @@ footer{
 
   .dropdown {
     position: relative;
-    display: inline-block;
+    display: block;
     background-color:	white;
     border-radius: 5px;
     padding: 10px;
     margin-top: 30px;
-    margin-left: 80px;
+    margin-left: 5.5em;
+    width: 30%;
+    float: left;
+    white-space:nowrap;
   }
 
   #fname{
     position: relative;
-    display: inline-block;
+    display: block;
     border-radius: 5px;
     margin-top: 30px;
-    margin-left: 10px;
+    margin-left: 0.3em;
     width: 40%;
     height: 65px;
     padding: 12px 20px;
     box-sizing: border-box;
     font-size: 30px;
+    float: left;
 
   }
   
@@ -87,4 +91,32 @@ footer{
     text-align: center;
     color: white;
     
+  }
+
+  @media only screen and (max-width: 420px) {
+    .dropdown{
+      margin-left: 0;
+      width: 37%;
+      
+    }
+    span{
+      font-size: 30px !important;
+    }
+    #fname{
+      margin-left: 5px;
+      font-size: 20px;
+      width: 60%;
+    }
+  }
+
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-bottom: 8px;
   }
