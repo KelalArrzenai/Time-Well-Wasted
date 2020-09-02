@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time Well Wasted</title>
     <link rel="stylesheet" href="css/bulma.min.css">
-  </head>
-  <body>
- 
-  </body>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-body has-text-centered">
+            <h2 class="subtitle">Welcome to</h2>
+            <h1 class="title">Time Well Wasted</h1>
+            <h2 class="subtitle">What're you in the mood for?</h2>
+        </div>
+    </section>
+    <section class="section">
+        <div class="columns">
+            <div class="column">
+                <div class="tile">
+                    <div class="field">
+                        <label class="label">Genre</label>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option id="movieSearch"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="tile">
+                    <div class="field">
+                        <label class="label">Genre</label>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option id="artistSearch"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
 </html>
