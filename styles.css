@@ -1,7 +1,22 @@
+.hero{
+  background-color: #a56b34;
+  font-family: 'Amatic SC', cursive;
+}
+.title{
+  color: white;
+  font-size: 60px;
+
+}
+.subtitle
+{
+  color: #d18b49;
+  font-size: 36px;
+}
+
 .backColor{
   position: absolute;
   background: #a56b34;
-  padding: 0 100% 25% 0;
+  padding: 0 100% 11% 0;
   z-index: -1;
 }
 footer{
@@ -10,7 +25,7 @@ footer{
 
 .column{
     background-color: white;
-    margin-top: 15%;
+    margin-top: 4%;
     border-radius: 10px;
     background-color: #d18b49;
     padding-bottom: 60px;
