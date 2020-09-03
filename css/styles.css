@@ -92,7 +92,6 @@ footer{
     color: white;
     
   }
-<<<<<<< HEAD:styles.css
 
   @media only screen and (max-width: 420px) {
     .dropdown{
@@ -121,6 +120,3 @@ footer{
     -webkit-transform: rotate(45deg);
     margin-bottom: 8px;
   }
-=======
-  
->>>>>>> master:css/styles.css
