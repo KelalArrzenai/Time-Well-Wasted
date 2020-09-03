@@ -1,5 +1,5 @@
 var genreOption;
-// var fname = $("#fname");
+var fname = $("#fname");
 var selectedGenre;
 var keyword;
 var movieID;
@@ -74,7 +74,9 @@ function init() {
 
 }
 
-$("#submitBtn").on("click", function() {
+$("#movieSubmitBtn").on("click", function() {
+    $("#moviePosterHere").empty();
+    $("#movieInfoHere").empty();
     movieGenre();
 });
 
@@ -85,8 +87,6 @@ function movieGenre() {
     var genreID = parseInt(selectedGenre);
     var APIKey = "1a0244fad68dbfa1e242e232ce4a493c"; //TMDB api
     var queryGenre = "https://api.themoviedb.org/3/discover/movie?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US&primary_release_year=2020&with_genres=" + genreID + "&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"; //2020 most popular movies
-    var queryPopular = "https://api.themoviedb.org/3/trending/all/day?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US"; //Todays trending titles
-    var querySimilar = "https://api.themoviedb.org/3/movie/86/similar?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US&page=1"; //Search similar titles
 
     $.ajax({
         url: queryGenre,
@@ -115,9 +115,10 @@ function movieGenre() {
 }
 
 
-$("#random").on("click", function() {
+$("#movieRandom").on("click", function() {
     event.preventDefault();
-
+    $("#moviePosterHere").empty();
+    $("#movieInfoHere").empty();
     var APIKey = "1a0244fad68dbfa1e242e232ce4a493c"; //TMDB api
     var queryTrends = "https://api.themoviedb.org/3/trending/all/day?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US&primary_release_year=2020&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
     $.ajax({
@@ -150,7 +151,7 @@ $("#random").on("click", function() {
 
 
 
-// $("button").on("click", function() {
+// function keyWords() {
 //     event.preventDefault();
 //     var keyword = $("#keywordSearch").val().toLowerCase();
 //     var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
@@ -167,7 +168,7 @@ $("#random").on("click", function() {
 //         console.log(response);
 
 //     });
-// });
+// }
 
 
 // function getMovie(movieID) {
@@ -198,7 +199,9 @@ $("#random").on("click", function() {
 
 // };
 
-$("#resetBtn").on("click", function() {
-    fname.empty();
+$("#movieReset").on("click", function() {
+    $("#moviePosterHere").empty();
+    $("#movieInfoHere").empty();
+
 })
 init();
