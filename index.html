@@ -2,94 +2,137 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Time Well Wasted</title>
-    <link rel="stylesheet" href="css/bulma.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time Well Wasted</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="#back-to-top">
-                <img src="couch-logo.png" alt="Man sitting on a couch" width="35" height="45">
-            </a>
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#back-to-top">
+        <img src="couch-logo.png" alt="Man sitting on a couch" width="35" height="45">
+      </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-    </nav>
-    <section id="back-to-top" class="hero">
-        <div class="hero-body has-text-centered">
-            <h2 class="subtitle">Welcome to</h2>
-            <h1 class="title">Time Well Wasted</h1>
-            <h2 class="subtitle">What're you in the mood for?</h2>
-        </div>
-    </section>
-    <div class="backColor">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+  <section id="back-to-top" class="hero">
+    <div class="hero-body has-text-centered">
+      <h2 class="subtitle">Welcome to</h2>
+      <h1 class="title">Time Well Wasted</h1>
+      <h2 class="subtitle">What're you in the mood for?</h2>
+    </div>
+  </section>
 
-    </div>
-    <div class="columns mx-4">
-        <div class="column mx-4">
-            <h3>Music</h3>
-            <div class="dropdown">
-                <span>Choose Category</span>
-                <div class="dropdown-content">
-                    <option value="">option 1</option>
-                    <option value="">option 2</option>
-                    <option value="">option 3</option>
-                </div>
-            </div>
-            <input type="text" id="fname" name="fname"><br><br>
-            <div class="has-text-centered">
-                <button class="button">Submit</button>
-                <button class="button" id="resetBtn">reset</button>
-            </div>
-        </div>
-        <div class="column mx-4">
-            <h3>Movies</h3>
-            <select id="genreDropDown" class="form-control" name="dropdown">
-                <option value="0">Category:</option>
-              </select>
-        </div>
-        <input class="button" type="text" id="fname" name="fname"><br><br>
-        <div class="has-text-centered">
-            <button class="button" id="submitBtn">Submit</button>
-            <button class="button" id="resetBtn">reset</button>
-            <button class="button" id="random">Roll the Dice?</button>
-        </div>
-        <section class="section">
-            <div class="box">
-                <article class="media">
-                    <div class="media-left">
-                        <figure id="moviePosterHere" class="image is-200x200">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <div id="movieInfoHere" class="content">
-
-                        </div>
-                        <nav class="level is-mobile">
-                            <div id="movieLinkHere" class="level-left">
-                            </div>
-                        </nav>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </div>
-    </div>
-    <script src="script.js"></script>
+  <div class="backColor">
 
   </div>
+  <div class="columns mx-4">
+    <div class="column mx-4">
+      <h3>Music</h3>
+      <div class="tile level-item">
+        <select class="dropdown-content ">
+          <option value="">Category</option>
+          <option value="1">option 1</option>
+          <option value="2">option 2</option>
+          <option value="3">option 3</option>
+          <option value="4">option 4</option>
+        </select>
+        <input type="text" id="fname" name="fname"><br>
+      </div>
+      <div class="tile level-item ">
+        <button>Submit</button>
+        <button>Random</button>
+        <button>Hello</button><br><br>
+      </div>
+    </div>
+    <div class="column mx-4">
+      <h3>Movies</h3>
+      <div class="tile level-item">
+        <select class="dropdown-content">
+          <option value="">Category</option>
+          <option value="1">option 1</option>
+          <option value="2">option 2</option>
+          <option value="3">option 3</option>
+          <option value="4">option 4</option>
+        </select>
 
+        <input type="text" id="fname" name="fname"><br>
+      </div>
+
+      <div class="tile level-item ">
+        <button>Submit</button>
+        <button>Random</button>
+        <button>Clear</button><br><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns mx-4">
+    <div class="tile is-parent is-vertical movies">
+
+      <section class="column is-half">
+        <div class="tile is-child">
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure id="moviePosterHere" class="image is-200x200">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div id="movieInfoHere" class="content">
+
+                </div>
+                <nav class="level is-mobile">
+                  <div id="movieLinkHere" class="level-left">
+                  </div>
+                </nav>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="column is-half">
+        <div class="tile is-child">
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure id="moviePosterHere" class="image is-200x200">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div id="movieInfoHere" class="content">
+
+              </div>
+              <nav class="level is-mobile">
+                <div id="movieLinkHere" class="level-left">
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="script.js"></script>
 </body>
 
 </html>
