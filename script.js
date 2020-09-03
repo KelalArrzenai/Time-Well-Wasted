@@ -4,6 +4,8 @@ var selectedGenre;
 var keyword;
 var movieID;
 
+var keyword;
+
 var genreCategory = [{
         genre: "Action",
         genreID: 28
@@ -143,61 +145,63 @@ $("#movieRandom").on("click", function() {
             var poster = $("<img>").attr("src", imgURL);
             $("#moviePosterHere").append(poster);
 
-
         }
         console.log(response);
     });
 });
 
 
+$("input").on("click", function() {
+    event.preventDefault();
+    keyword = $(this).val();
+    keyWords(keyword);
+});
 
-// function keyWords() {
-//     event.preventDefault();
-//     var keyword = $("#keywordSearch").val().toLowerCase();
-//     var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
+function keyWords(keyword) {
+    event.preventDefault();
+    var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
 
-//     $.ajax({
-//         url: queryKeyWord,
-//         method: "GET"
-//     }).then(function(response) {
-//         for (var i = 0; i < 5; i++) {
-//             var movieID = response.results[i].id;
+    $.ajax({
+        url: queryKeyWord,
+        method: "GET"
+    }).then(function(response) {
+        for (var i = 0; i < 5; i++) {
+            var movieID = response.results[i].id;
 
-//         }
-//         getMovie(movieID);
-//         console.log(response);
+        }
+        getMovie(movieID);
+        console.log(response);
 
-//     });
-// }
+    });
+}
 
 
-// function getMovie(movieID) {
-//     var queryByID = "https://api.themoviedb.org/3/discover/movie?api_key=1a0244fad68dbfa1e242e232ce4a493c&with_keywords=" + movieID + "&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
-//     console.log(movieID);
+function getMovie(movieID) {
+    var queryByID = "https://api.themoviedb.org/3/discover/movie?api_key=1a0244fad68dbfa1e242e232ce4a493c&with_keywords=" + movieID + "&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
+    console.log(movieID);
 
-//     $.ajax({
-//         url: queryByID,
-//         method: "GET"
-//     }).then(function(response) {
-//         for (var i = 0; i < 5; i++) {
-//             var poster = response.results[i].poster_path;
-//             var imgURL = "https://image.tmdb.org/t/p/w500" + poster;
-//             var genreID = response.results[i].genre_ids;
+    $.ajax({
+        url: queryByID,
+        method: "GET"
+    }).then(function(response) {
+        for (var i = 0; i < 5; i++) {
+            var poster = response.results[i].poster_path;
+            var imgURL = "https://image.tmdb.org/t/p/w500" + poster;
+            var newDiv = $("<div>");
+            $("#movieInfoHere").append(newDiv);
 
-//             var newDiv = $("<div>");
-//             $("body").append(newDiv);
-//             var movieTitle = $("<h2>").text(response.results[i].title);
-//             newDiv.append(movieTitle);
-//             var movieSummary = $("<p>").text(response.results[i].overview);
-//             newDiv.append(movieSummary);
-//             var poster = $("<img>").attr("src", imgURL);
-//             newDiv.append(poster);
+            var movieTitle = $("<h2>").text(response.results[i].title);
+            newDiv.append(movieTitle);
+            var movieSummary = $("<p>").text(response.results[i].overview);
+            newDiv.append(movieSummary);
+            var poster = $("<img>").attr("src", imgURL);
+            $("#moviePosterHere").append(poster);
 
-//         }
-//         console.log(response);
-//     });
+        }
+        console.log(response);
+    });
 
-// };
+};
 
 $("#movieReset").on("click", function() {
     $("#moviePosterHere").empty();
