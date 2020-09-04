@@ -65,15 +65,16 @@ var genreCategory = [{
 ]
 
 
-$("#movieMaster").hide();
-$("#movieMaster").children().hide(); 
-$("#musicMaster").hide();
-$("#musicMaster").children().hide(); 
+
 
 
 // Populates genre drop downs what the app is opened
 
 function init() {
+    $("#movieMaster").hide();
+    $("#movieMaster").children().hide();
+    $("#musicMaster").hide();
+    $("#musicMaster").children().hide();
     var dropDown = $("#genreDropDown");
     var musicDropDown = $("#musicDropDown");
     for (var i = 0; i < genreCategory.length; i++) {
@@ -148,6 +149,9 @@ function musicGenre() {
 $("#movieSubmitBtn").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
+    $("#movieMaster").show();
+    $("#movieMaster").children().show();
+    musicGenre();
     if ($("input").val().trim()) {
         keyWords($("input").val());
     } else {
@@ -198,6 +202,9 @@ $("#movieRandom").on("click", function() {
     event.preventDefault();
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
+    $("#movieMaster").show();
+    $("#movieMaster").children().show();
+    musicGenre();
     var APIKey = "1a0244fad68dbfa1e242e232ce4a493c"; //TMDB api
     var queryTrends = "https://api.themoviedb.org/3/trending/all/day?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US&primary_release_year=2020&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
     $.ajax({
@@ -230,7 +237,7 @@ $("#movieRandom").on("click", function() {
 // Takes user's input and queries that keyword and grabs the id associated with keyword and passes it to getMovie.
 function keyWords(keyword) {
     event.preventDefault();
-    var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
+    var queryKeyWord = "https://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
 
     $.ajax({
         url: queryKeyWord,
