@@ -1,11 +1,11 @@
 var genreOption;
 var fname = $("#fname");
 var selectedGenre;
+var selectedMusicGenre;
 var keyword;
 var movieID;
-
-var keyword;
-
+var randomID = "";
+var genreMusic = ["Country", "Pop", "Rock", "Hip-Hop/Rap", "World", "Jazz", "Blues", "Bluegrass", "Funk", "Soul"];
 var genreCategory = [{
         genre: "Action",
         genreID: 28
@@ -66,12 +66,20 @@ var genreCategory = [{
 
 function init() {
     var dropDown = $("#genreDropDown");
+    var musicDropDown = $("#musicDropDown");
     for (var i = 0; i < genreCategory.length; i++) {
         genreOption = $("<option>");
         genreOption.text(genreCategory[i].genre);
         genreOption.attr("value", genreCategory[i].genreID)
         genreOption.attr("class", "movieOption");
         dropDown.append(genreOption);
+    }
+    for (var i = 0; i < genreMusic.length; i++) {
+        genreOption = $("<option>");
+        genreOption.text(genreMusic[i]);
+        genreOption.attr("value", genreMusic[i])
+        genreOption.attr("class", "musicOption");
+        musicDropDown.append(genreOption);
     }
 
 }
@@ -81,6 +89,14 @@ $("#movieSubmitBtn").on("click", function() {
     $("#movieInfoHere").empty();
     movieGenre();
 });
+$("#musicSubmitBtn").on("click", function() {
+    $("#musicPosterHere").empty();
+    $("#musicInfoHere").empty();
+    musicGenre();
+});
+
+
+
 
 function movieGenre() {
     event.preventDefault();
@@ -89,7 +105,6 @@ function movieGenre() {
     var genreID = parseInt(selectedGenre);
     var APIKey = "1a0244fad68dbfa1e242e232ce4a493c"; //TMDB api
     var queryGenre = "https://api.themoviedb.org/3/discover/movie?api_key=1a0244fad68dbfa1e242e232ce4a493c&language=en-US&primary_release_year=2020&with_genres=" + genreID + "&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"; //2020 most popular movies
-
     $.ajax({
         url: queryGenre,
         method: "GET"
@@ -116,6 +131,35 @@ function movieGenre() {
     });
 }
 
+function musicGenre() {
+    event.preventDefault();
+    selectedMusicGenre = $("#musicDropDown").children("option:selected").val();
+    console.log(selectedGenre);
+    var queryGenre = "https://itunes.apple.com/search?term=" + selectedMusicGenre;
+    $.ajax({
+        url: queryGenre,
+        method: "GET"
+    }).then(function(response) {
+        var itunes = JSON.parse(response);
+        var st = Math.floor(Math.random() * 40);
+        var end = st + 5;
+        for (var i = st; i < end; i++) {
+            var artistName = itunes.results[i].artistName;
+            var albumCover = itunes.results[i].artworkUrl100;
+            var trackName = itunes.results[i].trackName;
+
+            var newDiv = $("<div>");
+            $("#musicInfoHere").append(newDiv);
+            newDiv.append(artistName);
+            var musicSummary = $("<p>").text(trackName);
+            newDiv.append(musicSummary);
+            var poster = $("<img>").attr("src", albumCover);
+            $("#musicPosterHere").append(poster);
+
+        }
+        console.log(itunes);
+    });
+}
 
 $("#movieRandom").on("click", function() {
     event.preventDefault();
@@ -206,6 +250,8 @@ function getMovie(movieID) {
 $("#movieReset").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
+    $("#musicPosterHere").empty();
+    $("#musicInfoHere").empty();
 
 })
 init();
