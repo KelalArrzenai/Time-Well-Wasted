@@ -39,8 +39,8 @@ footer{
     background-color: 	#b97331;
     padding: 10px;
     margin-top: 30px;
+ 
     z-index: 1;
-   
     color: white;
     font-size: 30px;
     height: 38%;
@@ -78,9 +78,10 @@ footer{
     .dropdown-content{
       margin-left: 0;
       width: 40%;
-    }
-    .dropdown-content{
       font-size: 17px;
+    }
+    #musicDropDown{
+      width: 70%;
     }
 
     #fname{
@@ -113,9 +114,10 @@ footer{
   button{
     display: block;
     position: relative;
-   
+    float: left;
     border-radius: 5px;
     margin-top: 30px;
+    
     font-family: 'Amatic SC', cursive;
     box-sizing: border-box;
     font-size: 2.8rem;
