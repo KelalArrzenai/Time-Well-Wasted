@@ -87,15 +87,23 @@ function init() {
 $("#movieSubmitBtn").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
-    movieGenre();
+    if ($("input").val().trim()) {
+        keyWords($("input").val());
+    } else {
+
+        movieGenre();
+    }
+
 });
+$("#genreDropDown").on("change", function() {
+    $("input").val("");
+});
+
 $("#musicSubmitBtn").on("click", function() {
     $("#musicPosterHere").empty();
     $("#musicInfoHere").empty();
     musicGenre();
 });
-
-
 
 
 function movieGenre() {
@@ -203,11 +211,6 @@ $("#movieRandom").on("click", function() {
 });
 
 
-$("input").on("click", function() {
-    event.preventDefault();
-    keyword = $(this).val();
-    keyWords(keyword);
-});
 
 function keyWords(keyword) {
     event.preventDefault();
