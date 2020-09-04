@@ -6,6 +6,10 @@ a polished UI.
 
 Time Well Wasted is live: https://kelalarrzenai.github.io/Time-Well-Wasted/
 
+## Usage
+![Time Well Wasted Wireframe](css/Time-Well-Wasted.gif)
+
+
 ## User Story
 ### Who wants this?
 Anyone who's bored and in need of new entertainment recommendations. 
