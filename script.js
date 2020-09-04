@@ -64,10 +64,14 @@ var genreCategory = [{
     }
 ]
 
+
 $("#movieMaster").hide();
 $("#movieMaster").children().hide(); 
 $("#musicMaster").hide();
 $("#musicMaster").children().hide(); 
+
+
+// Populates genre drop downs what the app is opened
 
 function init() {
     var dropDown = $("#genreDropDown");
@@ -89,14 +93,14 @@ function init() {
 
 }
 
-$("#movieSubmitBtn").on("click", function() {
-    $("#moviePosterHere").empty();
-    $("#movieInfoHere").empty();
-    $("#movieMaster").show();
-    $("#movieMaster").children().show(); 
-    movieGenre();
-    
+// Clears input field if user decides to search by genre
+$("#genreDropDown").on("change", function() {
+    $("input").val("");
 });
+
+
+
+// Triggers the music genre search function
 $("#musicSubmitBtn").on("click", function() {
     $("#musicPosterHere").empty();
     $("#musicInfoHere").empty();
@@ -105,9 +109,53 @@ $("#musicSubmitBtn").on("click", function() {
     musicGenre();
 });
 
+// Takes user's genre selection and queries it. Returns a random result from the response arrays.
+function musicGenre() {
+    event.preventDefault();
+    selectedMusicGenre = $("#musicDropDown").children("option:selected").val();
+    console.log(selectedGenre);
+    var queryGenre = "https://itunes.apple.com/search?term=" + selectedMusicGenre;
+    $.ajax({
+        url: queryGenre,
+        method: "GET"
+    }).then(function(response) {
+        var itunes = JSON.parse(response);
+        var st = Math.floor(Math.random() * 40);
+        var end = st + 5;
+        for (var i = st; i < end; i++) {
+            var artistName = $("<h2>").text(itunes.results[i].artistName);
+            var albumCover = itunes.results[i].artworkUrl100;
+            var trackName = itunes.results[i].trackName;
 
+            var newDiv = $("<div>");
+            var br = $("<br>");
+            $("#musicInfoHere").append(newDiv);
+            $("#musicInfoHere").append(br);
+            newDiv.append(artistName);
+            var musicSummary = $("<p>").text(trackName);
+            newDiv.append(musicSummary);
+            musicSummary.append(br);
+            var poster = $("<img>").attr("src", albumCover);
+            $("#musicPosterHere").append(poster);
+            $("#musicPosterHere").append(br);
 
+        }
+        console.log(itunes);
+    });
+}
 
+// Takes either the value of input field and runs a keywords search or triggers the genre search function
+$("#movieSubmitBtn").on("click", function() {
+    $("#moviePosterHere").empty();
+    $("#movieInfoHere").empty();
+    if ($("input").val().trim()) {
+        keyWords($("input").val());
+    } else {
+        movieGenre();
+    }
+});
+
+// Queries movies based on genre selection
 function movieGenre() {
     event.preventDefault();
     selectedGenre = $("#genreDropDown").children("option:selected").val();
@@ -145,40 +193,7 @@ function movieGenre() {
     });
 }
 
-function musicGenre() {
-    event.preventDefault();
-    selectedMusicGenre = $("#musicDropDown").children("option:selected").val();
-    console.log(selectedGenre);
-    var queryGenre = "https://itunes.apple.com/search?term=" + selectedMusicGenre;
-    $.ajax({
-        url: queryGenre,
-        method: "GET"
-    }).then(function(response) {
-        var itunes = JSON.parse(response);
-        var st = Math.floor(Math.random() * 40);
-        var end = st + 5;
-        for (var i = st; i < end; i++) {
-            var artistName = $("<h2>").text(itunes.results[i].artistName);
-            var albumCover = itunes.results[i].artworkUrl100;
-            var trackName = itunes.results[i].trackName;
-
-            var newDiv = $("<div>");
-            var br = $("<br>");
-            $("#musicInfoHere").append(newDiv);
-            $("#musicInfoHere").append(br);
-            newDiv.append(artistName);
-            var musicSummary = $("<p>").text(trackName);
-            newDiv.append(musicSummary);
-            musicSummary.append(br);
-            var poster = $("<img>").attr("src", albumCover);
-            $("#musicPosterHere").append(poster);
-            $("#musicPosterHere").append(br);
-
-        }
-        console.log(itunes);
-    });
-}
-
+// Queries trending movies in 2020 and randomly selects out of the list of arrays
 $("#movieRandom").on("click", function() {
     event.preventDefault();
     $("#moviePosterHere").empty();
@@ -212,13 +227,7 @@ $("#movieRandom").on("click", function() {
     });
 });
 
-
-$("input").on("click", function() {
-    event.preventDefault();
-    keyword = $(this).val();
-    keyWords(keyword);
-});
-
+// Takes user's input and queries that keyword and grabs the id associated with keyword and passes it to getMovie.
 function keyWords(keyword) {
     event.preventDefault();
     var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
@@ -237,7 +246,7 @@ function keyWords(keyword) {
     });
 }
 
-
+// Takes in keyword id and queries movies matching word in titles and descriptions.
 function getMovie(movieID) {
     var queryByID = "https://api.themoviedb.org/3/discover/movie?api_key=1a0244fad68dbfa1e242e232ce4a493c&with_keywords=" + movieID + "&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
     console.log(movieID);
@@ -265,6 +274,7 @@ function getMovie(movieID) {
 
 };
 
+// Clears all input fields
 $("#movieReset").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
@@ -272,4 +282,5 @@ $("#movieReset").on("click", function() {
     $("#musicInfoHere").empty();
 
 })
+
 init();
