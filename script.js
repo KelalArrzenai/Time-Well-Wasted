@@ -118,13 +118,17 @@ function movieGenre() {
             var genreID = response.results[i].genre_ids;
 
             var newDiv = $("<div>");
+            var br = $("<br>");
             $("#movieInfoHere").append(newDiv);
+            $("#movieInfoHere").append(br);
             var movieTitle = $("<h2>").text(response.results[i].title);
             newDiv.append(movieTitle);
             var movieSummary = $("<p>").text(response.results[i].overview);
             newDiv.append(movieSummary);
+            newDiv.append(br);
             var poster = $("<img>").attr("src", imgURL);
             $("#moviePosterHere").append(poster);
+            $("#moviePosterHere").append(br);
 
         }
         console.log(response);
@@ -144,17 +148,21 @@ function musicGenre() {
         var st = Math.floor(Math.random() * 40);
         var end = st + 5;
         for (var i = st; i < end; i++) {
-            var artistName = itunes.results[i].artistName;
+            var artistName = $("<h2>").text(itunes.results[i].artistName);
             var albumCover = itunes.results[i].artworkUrl100;
             var trackName = itunes.results[i].trackName;
 
             var newDiv = $("<div>");
+            var br = $("<br>");
             $("#musicInfoHere").append(newDiv);
+            $("#musicInfoHere").append(br);
             newDiv.append(artistName);
             var musicSummary = $("<p>").text(trackName);
             newDiv.append(musicSummary);
+            musicSummary.append(br);
             var poster = $("<img>").attr("src", albumCover);
             $("#musicPosterHere").append(poster);
+            $("#musicPosterHere").append(br);
 
         }
         console.log(itunes);
