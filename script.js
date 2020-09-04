@@ -64,6 +64,11 @@ var genreCategory = [{
     }
 ]
 
+$("#movieMaster").hide();
+$("#movieMaster").children().hide(); 
+$("#musicMaster").hide();
+$("#musicMaster").children().hide(); 
+
 function init() {
     var dropDown = $("#genreDropDown");
     var musicDropDown = $("#musicDropDown");
@@ -87,11 +92,16 @@ function init() {
 $("#movieSubmitBtn").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
+    $("#movieMaster").show();
+    $("#movieMaster").children().show(); 
     movieGenre();
+    
 });
 $("#musicSubmitBtn").on("click", function() {
     $("#musicPosterHere").empty();
     $("#musicInfoHere").empty();
+    $("#musicMaster").show();
+    $("#musicMaster").children().show();
     musicGenre();
 });
 
