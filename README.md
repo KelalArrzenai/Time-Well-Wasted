@@ -17,7 +17,7 @@ Time Well Wasted
 ## What its going to be
 Generate a list based off of tastes that the user will fill out in a form
 ​
-## Wireframe
+## Built with Bulma
 Built with Bulma  
 ![Time Well Wasted Wireframe](time-wasted-skeleton.png)
 ​
