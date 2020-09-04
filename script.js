@@ -230,7 +230,7 @@ $("#movieRandom").on("click", function() {
 // Takes user's input and queries that keyword and grabs the id associated with keyword and passes it to getMovie.
 function keyWords(keyword) {
     event.preventDefault();
-    var queryKeyWord = "http://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
+    var queryKeyWord = "https://api.themoviedb.org/3/search/keyword?api_key=1a0244fad68dbfa1e242e232ce4a493c&query=" + keyword + "&page=1";
 
     $.ajax({
         url: queryKeyWord,
