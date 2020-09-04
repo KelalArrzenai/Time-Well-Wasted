@@ -1,14 +1,15 @@
 # Time-Well-Wasted
 
-## Who are we building this for?
-Bored people.
+## Who wants this?
+Anyone who's bored and in need of.
 ​
 ## What is the user trying to achieve?
-A platform to get recommondations on music, movies, games, and recipes, and others (pending approval) based off a user's preferences
+A platform to get recommondations on music, movies, and more (pending deployment) based off a user's preferences and interest.
 ​
 ​
 ## Why do they want to achieve this?
-Gives the user suggestions for entertainment whenever they feel like.
+Have you ever been tired of all the browsing and decision making involved with entertaining ourselves? This application solves this problem with minimal input from the user.  
+Not to mention that this is a catch-all for any and all time-wasters the user might be into (pending deployment).
 ​
 ## Name
 Time Well Wasted
@@ -17,11 +18,11 @@ Time Well Wasted
 Generate a list based off of tastes that the user will fill out in a form
 ​
 ## Wireframe
-foundation
+Built with Bulma  
 ![Time Well Wasted Wireframe](time-wasted-skeleton.png)
 ​
 ## APIs
-Spotify
+iTunes
 TMDB
 ​
 ## Assignments
