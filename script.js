@@ -64,7 +64,15 @@ var genreCategory = [{
     }
 ]
 
+
+$("#movieMaster").hide();
+$("#movieMaster").children().hide(); 
+$("#musicMaster").hide();
+$("#musicMaster").children().hide(); 
+
+
 // Populates genre drop downs what the app is opened
+
 function init() {
     var dropDown = $("#genreDropDown");
     var musicDropDown = $("#musicDropDown");
@@ -84,6 +92,7 @@ function init() {
     }
 
 }
+
 // Clears input field if user decides to search by genre
 $("#genreDropDown").on("change", function() {
     $("input").val("");
@@ -95,6 +104,8 @@ $("#genreDropDown").on("change", function() {
 $("#musicSubmitBtn").on("click", function() {
     $("#musicPosterHere").empty();
     $("#musicInfoHere").empty();
+    $("#musicMaster").show();
+    $("#musicMaster").children().show();
     musicGenre();
 });
 

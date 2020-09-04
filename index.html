@@ -38,7 +38,7 @@
 
     </div>
     <div class="columns mx-4">
-        <div class="column mx-4">
+        <div class="column mx-4 slide-top">
             <h3>Music</h3>
             <div class="tile level-item">
                 <select id="musicDropDown" class="dropdown-content ">
@@ -47,10 +47,10 @@
             </div>
             <div class="tile level-item ">
                 <button id="musicSubmitBtn">Submit</button>
-                <button id="musicReset">Reset</button><br><br>
-            </div>
+                <button id="musicReset">Reset</button><br>
+            </div><br>
         </div>
-        <div class="column mx-4">
+        <div class="column mx-4 slide-top">
             <h3>Movies</h3>
             <div class="tile level-item">
                 <select id="genreDropDown" class="dropdown-content">
@@ -70,7 +70,7 @@
 
     <div class="columns mx-4">
 
-        <section class="column mx-4">
+        <section class="column mx-4" id="musicMaster">
             <div class="tile is-parent is-vertical music">
                 <div class="tile is-child">
                     <div class="box">
@@ -94,7 +94,7 @@
             </div>
         </section>
 
-        <section class="column mx-4">
+        <section class="column mx-4" id="movieMaster">
             <div class="tile is-parent is-vertical movies">
                 <div class="tile is-child">
                     <div class="box">
@@ -125,6 +125,7 @@
 
 
     <script src="script.js"></script>
+    
 </body>
 
 </html>
