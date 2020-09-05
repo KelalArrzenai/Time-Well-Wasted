@@ -5,7 +5,7 @@ var selectedMusicGenre;
 var keyword;
 var movieID;
 var randomID = "";
-var genreMusic = ["Country", "Pop", "Rock", "Hip-Hop/Rap", "World", "Jazz", "Blues", "Bluegrass", "Funk", "Soul"];
+var genreMusic = ["Country", "Pop", "Classic Rock", "Hip-Hop/Rap", "Jazz", "Blues", "Funk", "Soul"];
 var genreCategory = [{
         genre: "Action",
         genreID: 28
@@ -121,7 +121,7 @@ function musicGenre() {
         method: "GET"
     }).then(function(response) {
         var itunes = JSON.parse(response);
-        var st = Math.floor(Math.random() * 40);
+        var st = Math.floor(Math.random() * 30);
         var end = st + 5;
         for (var i = st; i < end; i++) {
             var artistName = $("<h2>").text(itunes.results[i].artistName);
@@ -281,13 +281,16 @@ function getMovie(movieID) {
 
 };
 
-// Clears all input fields
+// Clears all movie input fields
 $("#movieReset").on("click", function() {
     $("#moviePosterHere").empty();
     $("#movieInfoHere").empty();
+})
+
+//Clears all music input fields
+$("#musicReset").on("click", function() {
     $("#musicPosterHere").empty();
     $("#musicInfoHere").empty();
-
 })
 
 init();
